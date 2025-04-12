@@ -13,16 +13,9 @@
 # limitations under the License.
 
 services:
-  database:
-    image: "openreactiondatabase/ord-postgres:test"
-    command: [ "postgres", "-c", "log_statement=all" ]
-    ports:
-      - "5432:5432"
   web:
-    depends_on:
-      - database
     environment:
-      - POSTGRES_HOST=database
+      - POSTGRES_HOST=192.168.162.15
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DATABASE=ord
